@@ -32,12 +32,16 @@ class App extends LitElement {
         data: { title: "Home" }
       },
       {
-        name: "info",
-        pattern: "info"
+        name: "about",
+        pattern: "about"
       },
       {
-        name: "user",
-        pattern: "user/:id"
+        name: "kittens",
+        pattern: "kittens"
+      },
+      {
+        name: "contact",
+        pattern: "contact"
       },
       {
         name: "not-found",
@@ -65,14 +69,16 @@ class App extends LitElement {
   render() {
     return html`
       <app-link href="/">Home</app-link>
-      <app-link href="/info">Info</app-link>
-      <app-link href="/info?data=12345">Info?data=12345</app-link>
-      <app-link href="/user/14">user/14</app-link>
+      <app-link href="/about">About</app-link>
+      <app-link href="kittens">kittens</app-link>
+      <app-link href="contact">Contact</app-link>
 
       <app-main active-route=${this.route}>
-        <h1 route="home">Home</h1>
-        <h1 route="info">Info ${this.query.data}</h1>
-        <h1 route="user">User ${this.params.id}</h1>
+        <div route="home">Home</div>
+        <div route="about">About</div>
+        <div route="kittens">Kittens</div>
+        <div route="contact">Contact</div>
+        
         <h1 route="not-found">Not Found</h1>
       </app-main>
     `;
